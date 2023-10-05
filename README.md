@@ -18,16 +18,15 @@ class MyCodingProblemClass {
    /*
     *
     */
-    boolean isTwoNumbersAddUpToK(int[] numbers, int k) {
-        HashSet<Integer> listSeenElemenComplementNumAddUpToK = new HashSet<Integer>();
+     boolean isTwoNumbersAddUpToK(int[] numbers, int k) {
+        HashSet<Integer> listSeenElementComplementNumAddUpToK = new HashSet<Integer>();
         for (int num : numbers) {
- 
             int complementNumAddUpToK = k - num;
-            if (listSeenElemenComplementNumAddUpToK.contains(complementNumAddUpToK)) {
+            if (listSeenElementComplementNumAddUpToK.contains(complementNumAddUpToK)) {
                 System.out.println(k + " = " + num + " + " + complementNumAddUpToK);
                 return true;
             }
-            listSeenElemenComplementNumAddUpToK.add(num);
+            listSeenElementComplementNumAddUpToK.add(num);
         }
         return false;
     }
