@@ -18,36 +18,30 @@ class MyCodingProblemClass {
    /*
     *
     */
-    boolean isTwoNumbersAddUpToK(ArrayList<Integer> numbers, Integer k) {
-
-        ArrayList<Integer> listSeenElemenComplementNumToAddUpToK = new ArrayList<Integer>();
-        
-        for (Integer num : numbers) {
-            Integer size = listSeenElemenComplementNumToAddUpToK.size();
-            Integer lastSeenElementComplementNumToAddUpToK = null;
-            if (size > 0) {
-                lastSeenElementComplementNumToAddUpToK = listSeenElemenComplementNumToAddUpToK.get(size - 1);
+    boolean isTwoNumbersAddUpToK(int[] numbers, int k) {
+        HashSet<Integer> listSeenElemenComplementNumAddUpToK = new HashSet<Integer>();
+        for (int num : numbers) {
+ 
+            int complementNumAddUpToK = k - num;
+            if (listSeenElemenComplementNumAddUpToK.contains(complementNumAddUpToK)) {
+                System.out.println(k + " = " + num + " + " + complementNumAddUpToK);
+                return true;
             }
-            
-            if (num != lastSeenElementComplementNumToAddUpToK) {
-                System.out.println(k + " = " + num + " + " + (k - num));
-                return true;  
-            }
-            listSeenElemenComplementNumToAddUpToK.add(k - num);
+            listSeenElemenComplementNumAddUpToK.add(num);
         }
         return false;
     }
-
+ 
    /*
     *
     */
     public static void main(String[] args) {
-        
+ 
         MyCodingProblemClass myClass = new MyCodingProblemClass();  
-        
-        ArrayList<Integer> numbers = new ArrayList<Integer>(Arrays.asList(10, 15, 3, 7));
-        Integer k = 17;
-    
+ 
+        int[] numbers = {10, 15, 3, 7};
+        int k = 17;
+ 
         if (myClass.isTwoNumbersAddUpToK(numbers, k)) {
             System.out.println("Found");
         } else {
@@ -56,8 +50,9 @@ class MyCodingProblemClass {
     }
 
     // Output
-    // Success #stdin #stdout 0.17s 47224KB
-    // 17 = 10 + 7
+    // Success #stdin #stdout 0.15s 48596KB
+    // stdout copy
+    // 17 = 7 + 10
     // Found
 
     // I use this online compiler to run the above code
